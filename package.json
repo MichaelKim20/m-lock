@@ -1,0 +1,14 @@
+{
+  "name": "m-lock",
+  "description": "A module for processing synchronization",
+  "author": "Mukeun Kim",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mukeunkim/m-lock.git"
+  },
+  "dependencies": {
+  },
+  "scripts": {
+  },
+  "version": "0.0.4"
+}
