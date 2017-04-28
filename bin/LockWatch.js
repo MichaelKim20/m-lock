@@ -29,7 +29,7 @@ class LockWatch {
                 var LNTime = new Date();
                 var LElapse = (LNTime.getTime() - watcher.localKeys[watcher.key_enter]) / 1000;
 
-                if (LElapse > 10) {
+                if (LElapse > 5) {
                     watcher.localKeys[watcher.key_lock] = 0;
                     watcher.localKeys[watcher.key_enter] = LNTime.getTime();
                 }
