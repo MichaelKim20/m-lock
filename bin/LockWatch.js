@@ -7,10 +7,12 @@ class LockWatch {
         this.key_enter = '$' + key + '_enter';
         this.key_watch = '$' + key + '_watch';
         this.localKeys[this.key_watch] = 0;
+        this.started = false;
         this.start();
     }
 
     start() {
+        this.started = true;
         this.localKeys[this.key_watch]++;
         this.localKeys[this.key_watch] = (this.localKeys[this.key_watch] % 10);
         var tick = this.localKeys[this.key_watch];
@@ -33,16 +35,16 @@ class LockWatch {
                     watcher.localKeys[watcher.key_lock] = 0;
                     watcher.localKeys[watcher.key_enter] = LNTime.getTime();
                 }
-                setTimeout(go_watch, 100);
+                if (this.started) setTimeout(go_watch, 100);
             } else {
-                setTimeout(go_watch, 100);
+                if (this.started) setTimeout(go_watch, 100);
             }
         };
         go_watch();
     };
 
     stop() {
-        clearInterval(this.intervalID);
+        this.started = false;
     };
 
 }
