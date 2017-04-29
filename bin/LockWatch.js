@@ -35,9 +35,9 @@ class LockWatch {
                     watcher.localKeys[watcher.key_lock] = 0;
                     watcher.localKeys[watcher.key_enter] = LNTime.getTime();
                 }
-                if (this.started) setTimeout(go_watch, 100);
+                if (watcher.started) setTimeout(go_watch, 100);
             } else {
-                if (this.started) setTimeout(go_watch, 100);
+                if (watcher.started) setTimeout(go_watch, 100);
             }
         };
         go_watch();
