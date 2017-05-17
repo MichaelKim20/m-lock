@@ -62,7 +62,7 @@ class LockContainer {
         delete this.localKeys[key_enter];
     };
 
-    enter(key, callback) {
+    enter(key, callback, checktimeout) {
         var key_lock = '$' + key;
         var key_loop = '$' + key + '_lock_loop';
         var key_enter = '$' + key + '_enter';
@@ -72,6 +72,7 @@ class LockContainer {
         var tick = this.localKeys[key_loop];
 
         var oldDateTime, newDateTime, newtick, oldtick;
+        var timeout;
         oldDateTime = new Date();
         var container = this;
         var go_enter = function () {
@@ -88,7 +89,15 @@ class LockContainer {
                     return;
                 }
                 container.localKeys[key_lock]--;
-                setTimeout(go_enter, 10);
+
+                if (checktimeout != null) {
+                    timeout = checktimeout();
+                } else {
+                    timeout = false;
+                }
+                if (!timeout) {
+                    setTimeout(go_enter, 10);
+                }
             } else {
                 setTimeout(go_enter, 10);
             }

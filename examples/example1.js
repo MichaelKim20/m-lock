@@ -12,6 +12,8 @@ setInterval(() => {
                 lock.leave('data');
             }, 1000);
         }
+    }, () => {
+        console.log('check_timeout');
+        return false;
     })
 }, 2000);
-
