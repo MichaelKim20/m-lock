@@ -20,9 +20,9 @@ exports.removeLock = function(key) {
     lockContainer.removeLock(key);
 };
 
-exports.enter = function(key, callback) {
+exports.enter = function(key, callback, checktimeout) {
     if (lockContainer == null ) lockContainer = LockContainer.getInstance();
-    lockContainer.enter(key, callback);
+    lockContainer.enter(key, callback, checktimeout);
 };
 
 exports.leave = function(key) {
